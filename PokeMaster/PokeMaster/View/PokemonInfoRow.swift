@@ -28,16 +28,25 @@ struct PokemonInfoRow: View {
                         .foregroundColor(.white)
                 }
             }
-            HStack {
+            HStack(spacing: 20) {
                 Spacer()
                 Button(action: {}) {
-                    Text("Fav")
+                    Image(systemName: "star")
+                        .font(.system(size: 25))
+                        .foregroundColor(.white)
+                        .frame(width: 30, height: 30)
                 }
                 Button(action: {}) {
-                    Text("Panel")
+                    Image(systemName: "chart.bar")
+                        .font(.system(size: 25))
+                        .foregroundColor(.white)
+                        .frame(width: 30, height: 30)
                 }
                 Button(action: {}) {
-                    Text("Web")
+                    Image(systemName: "info.circle")
+                        .font(.system(size: 25))
+                        .foregroundColor(.white)
+                        .frame(width: 30, height: 30)
                 }
             }
         }
