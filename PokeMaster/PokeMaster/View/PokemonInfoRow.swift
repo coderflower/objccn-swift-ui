@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct PokemonInfoRow: View {
-    let model = PokemonViewModel.sample(id: 1)
+    
+    let model: PokemonViewModel
+    @State var expanded: Bool
+    
     var body: some View {
         VStack {
             HStack {
@@ -29,7 +32,8 @@ struct PokemonInfoRow: View {
                 }
             }
             .padding(.top, 12)
-            HStack(spacing: 20) {
+            Spacer()
+            HStack(spacing: expanded ? 20 : -30) {
                 Spacer()
                 Button(action: {}) {
                     Image(systemName: "star")
@@ -43,9 +47,12 @@ struct PokemonInfoRow: View {
                     Image(systemName: "info.circle")
                         .modifier(ToolButtonModifier())
                 }
-            }.padding(.bottom, 12)
+            }
+            .padding(.bottom, 12)
+            .opacity(expanded ? 1.0 : 0.0)
+            .frame(maxHeight: expanded ? .infinity : 0)
         }
-        .frame(height: 120)
+        .frame(height: expanded ? 120 : 80)
         .padding(.leading, 23)
         .padding(.trailing, 15)
         .background(
@@ -62,6 +69,9 @@ struct PokemonInfoRow: View {
             }
         )
         .padding(.horizontal)
+        .onTapGesture {
+            self.expanded.toggle()
+        }
     }
 }
 
@@ -76,6 +86,11 @@ struct ToolButtonModifier: ViewModifier {
 
 struct PokemonInfoRow_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonInfoRow()
+        VStack {
+            PokemonInfoRow(model: .sample(id: 1), expanded: false)
+            PokemonInfoRow(model: .sample(id: 21), expanded: true)
+            PokemonInfoRow(model: .sample(id: 25), expanded: true)
+        }
+        
     }
 }
