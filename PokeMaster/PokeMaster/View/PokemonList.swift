@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct PokemonList: View {
+    
+    @State var expandingIndex: Int?
+    
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(PokemonViewModel.all) {
-                    PokemonInfoRow(model: $0, expanded: false)
+                ForEach(PokemonViewModel.all) { pokemon in
+                    PokemonInfoRow(
+                        model: pokemon,
+                        expanded: expandingIndex == pokemon.id
+                    )
+                        .onTapGesture {
+                            withAnimation(
+                                .spring(
+                                    response: 0.55,
+                                    dampingFraction: 0.425,
+                                    blendDuration: 0
+                                )
+                            ) {
+                                expandingIndex = expandingIndex == pokemon.id ? nil : pokemon.id
+                            }
+                        }
                 }
             }
         }
