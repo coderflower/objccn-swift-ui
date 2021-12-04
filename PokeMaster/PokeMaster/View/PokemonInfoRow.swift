@@ -28,6 +28,7 @@ struct PokemonInfoRow: View {
                         .foregroundColor(.white)
                 }
             }
+            .padding(.top, 12)
             HStack(spacing: 20) {
                 Spacer()
                 Button(action: {}) {
@@ -48,9 +49,11 @@ struct PokemonInfoRow: View {
                         .foregroundColor(.white)
                         .frame(width: 30, height: 30)
                 }
-            }
+            }.padding(.bottom, 12)
         }
-        .padding(.top, 12)
+        .frame(height: 120)
+        .padding(.leading, 23)
+        .padding(.trailing, 15)
         .background(Color.green)
     }
 }
