@@ -33,21 +33,15 @@ struct PokemonInfoRow: View {
                 Spacer()
                 Button(action: {}) {
                     Image(systemName: "star")
-                        .font(.system(size: 25))
-                        .foregroundColor(.white)
-                        .frame(width: 30, height: 30)
+                        .modifier(ToolButtonModifier())
                 }
                 Button(action: {}) {
                     Image(systemName: "chart.bar")
-                        .font(.system(size: 25))
-                        .foregroundColor(.white)
-                        .frame(width: 30, height: 30)
+                        .modifier(ToolButtonModifier())
                 }
                 Button(action: {}) {
                     Image(systemName: "info.circle")
-                        .font(.system(size: 25))
-                        .foregroundColor(.white)
-                        .frame(width: 30, height: 30)
+                        .modifier(ToolButtonModifier())
                 }
             }.padding(.bottom, 12)
         }
@@ -55,6 +49,15 @@ struct PokemonInfoRow: View {
         .padding(.leading, 23)
         .padding(.trailing, 15)
         .background(Color.green)
+    }
+}
+
+struct ToolButtonModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 25))
+            .foregroundColor(.white)
+            .frame(width: 30, height: 30)
     }
 }
 
