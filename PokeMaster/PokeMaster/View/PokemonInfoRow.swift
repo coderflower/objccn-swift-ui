@@ -13,10 +13,19 @@ struct PokemonInfoRow: View {
         VStack {
             HStack {
                 Image("Pokemon-\(model.id)")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .aspectRatio(contentMode: .fit)
+                    .shadow(radius: 4)
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text(model.name)
+                        .font(.title)
+                        .fontWeight(.black)
+                        .foregroundColor(.white)
                     Text(model.nameEN)
+                        .font(.subheadline)
+                        .foregroundColor(.white)
                 }
             }
             HStack {
@@ -31,7 +40,9 @@ struct PokemonInfoRow: View {
                     Text("Web")
                 }
             }
-        }.background(Color.green)
+        }
+        .padding(.top, 12)
+        .background(Color.green)
     }
 }
 
