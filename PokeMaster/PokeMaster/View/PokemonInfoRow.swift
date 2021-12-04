@@ -48,7 +48,20 @@ struct PokemonInfoRow: View {
         .frame(height: 120)
         .padding(.leading, 23)
         .padding(.trailing, 15)
-        .background(Color.green)
+        .background(
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(model.color, style: StrokeStyle(lineWidth: 4))
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(
+                        LinearGradient(
+                            gradient: Gradient(colors: [.white, model.color]),
+                            startPoint: .leading,
+                            endPoint: .trailing)
+                    )
+            }
+        )
+        .padding(.horizontal)
     }
 }
 
