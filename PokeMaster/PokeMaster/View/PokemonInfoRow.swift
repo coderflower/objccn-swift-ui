@@ -70,7 +70,9 @@ struct PokemonInfoRow: View {
         )
         .padding(.horizontal)
         .onTapGesture {
-            self.expanded.toggle()
+            withAnimation {
+                self.expanded.toggle()
+            }
         }
     }
 }
