@@ -195,6 +195,7 @@
 			children = (
 				22575130275B44BA009555EF /* PokeMasterApp.swift */,
 				22575132275B44BA009555EF /* ContentView.swift */,
+				225751D4275B4557009555EF /* View */,
 				22575147275B4527009555EF /* JSON */,
 				2257513E275B4527009555EF /* Model */,
 				22575189275B4528009555EF /* Utils */,
@@ -342,6 +343,13 @@
 				2257518C275B4528009555EF /* Helpers.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		225751D4275B4557009555EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
